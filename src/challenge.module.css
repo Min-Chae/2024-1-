@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body{
+    background-color: #f5f6f7;
+}
+
 .board_title {
     margin-bottom: 50px;
     margin-top : 20px;
@@ -45,11 +49,4 @@ button:hover {
     font-size: 20px;
     color : black;
     margin-left: 45px;
-}
-
-.connection {
-    color : blue;
-    font-size: 40px;
-    margin-top: 20px;
-    margin-left: 40px;
 }

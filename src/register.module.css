@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #f5f6f7;
+}
+
+.board_wrap {
+    width: 80%;
+    margin: auto;
+}
+
+.board_title {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.board_title img {
+    width: 50px;
+    height: 50px;
+}
+
+.board_title strong {
+    font-size: 40px;
+    color : black;
+}
+
+.register {
+    display : inline-block;
+    background-color: #2db400;
+    color:#fff;
+    border: 1px solid #dadada;
+    padding: 15px;
+    font-size : 20px;
+}
+
+.member{
+    width: 400px;
+    /* border: 1px solid #000; */
+    margin: auto; /*중앙 정렬*/
+    padding: 0 20px;
+}
+
+.member .field{
+    margin :5px 0; /*상하로 좀 띄워주기*/
+}
+
+.member b{
+    display: block; 
+    margin-bottom: 5px;
+}
+
+.member input{
+    border: 1px solid #dadada;
+    padding: 15px;
+    width: 100%;
+}
+
+.member input[type=submit]{
+    margin-top: 10px;
+    background-color: #2db400;
+    color:#fff;
+    border: 1px solid #dadada;
+    padding: 15px;
+    width: 108%;
+    margin-bottom: 5px;
+}
+
+
