@@ -1,0 +1,62 @@
+body{
+    background-color: #f5f6f7;
+}
+
+label {
+    margin-bottom: 8px;
+}
+  
+button {
+    padding: 8px;
+    background-color: #4caf50;
+    margin-left: 10px;
+    color: white;
+    cursor: pointer;
+}
+  
+button:hover {
+    background-color: #45a049;
+}
+
+ul, li {
+    list-style: none;
+    background-color: greenyellow;
+    border-bottom: 1px solid black;
+}
+
+.board_title {
+    border: 1px solid black;
+    text-align: center;
+    margin-bottom:100px;
+    margin-top:10px;
+}
+
+.board_title img {
+    width: 50px;
+    height: 50px;
+    float:left;
+}
+
+.board_title strong {
+    font-size: 40px;
+    color : black;
+    float:left;
+}
+
+.login {
+    background-color: #2db400;
+    color:#fff;
+    border: 1px solid #dadada;
+    padding: 15px;
+    font-size : 20px;
+    float:right;
+}
+
+.register {
+    background-color: #2db400;
+    color:#fff;
+    border: 1px solid #dadada;
+    padding: 15px;
+    font-size : 20px;
+    float:right;
+}

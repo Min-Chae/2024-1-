@@ -3,9 +3,6 @@
     margin:auto;
 }
 
-.field {
-    margin:auto;
-}
 .member b{
     display: block; 
     margin-bottom: 5px;
@@ -14,9 +11,7 @@
 .member input{
     border: 1px solid #dadada;
     padding: 15px;
-    width: 92%;
-    margin:auto;
-    display:inline;
+    width: 90%;
 }
 
 .member input[type=submit]{
@@ -25,11 +20,12 @@
     color:#fff;
     border: 1px solid #dadada;
     padding: 15px;
-    width: 101%;
+    width: 99%;
     margin-bottom: 5px;
 }
 
 .form {
+    margin : 1px;
     background-color:#2db400;
     width: 35%;
     margin:auto;

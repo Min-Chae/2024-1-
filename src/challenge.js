@@ -1,4 +1,5 @@
 import React, { useState, useEffect }  from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from "./challenge.module.css"
 import Logo from './logo.jpg';
@@ -72,30 +73,41 @@ const Challenge = () => {
   };
 
   return (
-    <div className={styles.board_wrap}>
-      <div className={styles.board_title}>
+    <div>
+      <div className="board_title">
         <img src={Logo} alt="Logo img"/>
-        <strong>IoT-CTF</strong>
-      </div>
 
-      <div className={styles.title}>
-        {challenge.number}. {challenge.title}
-      </div>
-      
-      <div className={styles.description}>
-        {challenge.description}
-      </div>
-       
-      <form onSubmit={check_answer}>
-        <input type="text" name="ans" value={formData.ans} onChange={handleChange} />
-        <button type="submit">제출하기</button>
-      </form>
+        <Link to={`/`} style={{ textDecoration: "none"}}>
+          <strong>IoTeacher</strong>
+        </Link>
+        <Link to={`/register`}>
+          <div className="register">register</div>
+        </Link>
+        <Link to={`/login`}>
+          <div className="login">login</div>
+        </Link>
+      </div>  
 
-      <form onSubmit= {create_env}>
-        <button type="submit">가상 환경 생성하기</button>
-        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-      </form>
-    </div>
+      <div className={styles.board_list}>
+        <div className={styles.title}>
+          {challenge.number}. {challenge.title}
+        </div>
+        
+        <div className={styles.description}>
+          {challenge.description}
+        </div>
+        
+        <form onSubmit={check_answer}>
+          <input type="text" name="ans" value={formData.ans} onChange={handleChange} />
+          <button type="submit">제출하기</button>
+        </form>
+
+        <form onSubmit= {create_env}>
+          <button type="submit">가상 환경 생성하기</button>
+          <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+        </form>
+      </div>
+    </div> 
     )
 }
 
