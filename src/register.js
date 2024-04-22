@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import Logo from './logo.jpg';
 import styles from "./register.module.css"
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -61,50 +62,33 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <div className="board_title">
-      <img src={Logo} alt="Logo img"/>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.text}> Register </div>
+        
+      <Form.Group className={styles.input}>
+        <Form.Label className="white">ID</Form.Label>
+        <Form.Control name="id" type="id" placeholder="Enter the ID" onChange={handleChange} />
+      </Form.Group>
 
-      <Link to={`/`} style={{ textDecoration: "none"}}>
-        <strong>IoTeacher</strong>
-      </Link>
-      <Link to={`/register`}>
-        <div className="register">register</div>
-      </Link>
-      <Link to={`/login`}>
-        <div className="login">login</div>
-      </Link>
-    </div>  
+      <Form.Group className={styles.input}>
+        <Form.Label className="white">Password</Form.Label>
+        <Form.Control name="password" type="password" placeholder="Enter the Password" onChange={handleChange} />
+      </Form.Group>
 
-      <form className={styles.form} onSubmit={handleSubmit} >
-        <div className={styles.text}>회원가입</div>
+      <Form.Group className={styles.input}>
+        <Form.Label className="white">Password Check</Form.Label>
+        <Form.Control name="confirmPassword" type="password" placeholder="Enter the Password" onChange={handleChange} />
+      </Form.Group>
 
-        <div className={styles.member}>
-          <div className={styles.field}>
-            <b>아이디</b>
-            <input type="text" name="id" onChange={handleChange} />
-          </div>
+      <Form.Group className={styles.input}>
+        <Form.Label className="white">Nickname</Form.Label>
+        <Form.Control name="nickname" placeholder="Enter the Nickname" onChange={handleChange} />
+      </Form.Group>
 
-          <div className={styles.field}>
-              <b>비밀번호</b>
-              <input type="password" name="password" onChange={handleChange} />
-          </div>
-
-          <div className={styles.field}>
-              <b>비밀번호 확인</b>
-              <input type="password" name="confirmPassword" onChange={handleChange} />
-          </div>
-
-          <div className={styles.field}>
-              <b>닉네임</b>
-              <input type="text" name="nickname" onChange={handleChange} />
-          </div>
-
-          <input type="submit" value="Register" />
-        </div>
-      </form>
-     
-    </div>
+      <Button className={styles.button} variant="secondary" type="submit">
+        Reigister
+      </Button>
+    </form>
   )
 }
 

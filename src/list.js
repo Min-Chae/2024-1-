@@ -1,7 +1,6 @@
 import React, { useState, useEffect }  from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Logo from './logo.jpg';
 import styles from "./list.module.css"
 
 const List = () => {
@@ -23,27 +22,11 @@ const List = () => {
   }, []);
 
   return (
-    <div>
-      
-      <div className="board_title">
-        <img src={Logo} alt="Logo img"/>
-
-        <Link to={`/`} style={{ textDecoration: "none"}}>
-          <strong>IoTeacher</strong>
-        </Link>
-        <Link to={`/register`}>
-          <div className="register">register</div>
-        </Link>
-        <Link to={`/login`}>
-          <div className="login">login</div>
-        </Link>
-      </div>  
-
       <div className={styles.board_list}>
         <div className={styles.top}>
-          <div className={styles.num}>No.</div>
-          <div className={styles.title}>문제</div>
-          <div className={styles.level}>난이도</div>
+          <div className={styles.num}>No</div>
+          <div className={styles.title}>Title</div>
+          <div className={styles.level}>Level</div>
       </div>
 
       <ul>
@@ -59,8 +42,8 @@ const List = () => {
           </li>
         ))}
       </ul>
-    </div>            
-  </div>
+    </div>        
+ 
   )
 }
 

@@ -1,9 +1,10 @@
 import React, { useState, useEffect }  from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from "./challenge.module.css"
-import Logo from './logo.jpg';
 import { useParams } from 'react-router-dom';
+import FlagImage from './flag.png';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const Challenge = () => {
   const { uuid } = useParams();
@@ -74,36 +75,31 @@ const Challenge = () => {
 
   return (
     <div>
-      <div className="board_title">
-        <img src={Logo} alt="Logo img"/>
-
-        <Link to={`/`} style={{ textDecoration: "none"}}>
-          <strong>IoTeacher</strong>
-        </Link>
-        <Link to={`/register`}>
-          <div className="register">register</div>
-        </Link>
-        <Link to={`/login`}>
-          <div className="login">login</div>
-        </Link>
-      </div>  
-
       <div className={styles.board_list}>
         <div className={styles.title}>
           {challenge.number}. {challenge.title}
         </div>
         
         <div className={styles.description}>
-          {challenge.description}
+          Question : {challenge.description}
         </div>
         
         <form onSubmit={check_answer}>
-          <input type="text" name="ans" value={formData.ans} onChange={handleChange} />
-          <button type="submit">제출하기</button>
+          <img src={FlagImage} alt="" className={styles.flagImage}/>
+          <div className={styles.flag}>Enter the Flag: </div>
+          <div>
+            <Form.Group controlId="formBasicEmail" className={styles.input}>
+              <Form.Control type="text" name="ans" value={formData.ans} onChange={handleChange} />
+            </Form.Group>
+            <Button variant="dark" type="submit" className={styles.button}>
+              Submit
+            </Button>
+          </div>
         </form>
 
         <form onSubmit= {create_env}>
-          <button type="submit">가상 환경 생성하기</button>
+          
+        <Button variant="dark" type="submit" className={styles.create}>Create Virtual Environment</Button>
           <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
         </form>
       </div>

@@ -1,32 +1,6 @@
-.member{
-    width: 70%;
-    margin:auto;
-}
-
-.member b{
-    display: block; 
-    margin-bottom: 5px;
-}
-
-.member input{
-    border: 1px solid #dadada;
-    padding: 15px;
-    width: 90%;
-}
-
-.member input[type=submit]{
-    margin-top: 10px;
-    background-color: #2db400;
-    color:#fff;
-    border: 1px solid #dadada;
-    padding: 15px;
-    width: 99%;
-    margin-bottom: 5px;
-}
-
 .form {
     margin : 1px;
-    background-color:#2db400;
+    background-color:#212529;
     width: 35%;
     margin:auto;
     border-radius: 40px;
@@ -35,9 +9,22 @@
     padding-bottom:30px;
 }
 
-.text{
-    margin:auto;
-    text-align:center;
-    color:white;
-    font-size:30px;
+.text {
+    margin: auto;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.input {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+.button {
+    display: block;
+    width: 90%;
+    margin: auto;
+    margin-top: 7%;
 }

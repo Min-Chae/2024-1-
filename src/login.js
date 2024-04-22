@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import Logo from './logo.jpg';
 import styles from "./login.module.css"
-import { Link } from 'react-router-dom';
 import './index.css'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -25,40 +26,23 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="board_title">
-        <img src={Logo} alt="Logo img"/>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.text}> Login </div>
+        
+      <Form.Group className={styles.input} controlId="formBasicEmail">
+        <Form.Label className="white">ID</Form.Label>
+        <Form.Control type="ID" placeholder="Enter the ID" />
+      </Form.Group>
 
-        <Link to={`/`} style={{ textDecoration: "none"}}>
-          <strong>IoTeacher</strong>
-        </Link>
-        <Link to={`/register`}>
-          <div className="register">register</div>
-        </Link>
-        <Link to={`/login`}>
-          <div className="login">login</div>
-        </Link>
-      </div>  
+      <Form.Group className={styles.input} controlId="formBasicPassword">
+        <Form.Label className="white">Password</Form.Label>
+        <Form.Control type="password" placeholder="Enter the Password" onChange={handleChange} />
+      </Form.Group>
 
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.text}> 로그인 </div>
-      
-        <div className={styles.member}>
-          <div className={styles.field}>
-              <b>아이디</b>
-              <span><input type="text" name="id" onChange={handleChange} /></span>
-          </div>
-
-          <div className={styles.field}>
-              <b>비밀번호</b>
-              <input type="password" name="password" onChange={handleChange} />
-          </div>
-
-          <input type="submit" value="Login" />
-        </div>
-      </form>
-     
-    </div>
+      <Button className={styles.button} variant="secondary" type="submit">
+        Login
+      </Button>
+    </form>
   )
 }
 
