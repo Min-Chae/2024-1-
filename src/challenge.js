@@ -30,9 +30,9 @@ const Challenge = () => {
 
   useEffect(() => {
     if (env.host !== '' && env.port !== '') {
-      setHtmlContent(`<p>
+      setHtmlContent(`<div>
       host : ${env.host} <br>
-      port : ${env.port} </p>`
+      port : ${env.port} </div>`
       );  
     }
   }, [env]);
@@ -41,9 +41,9 @@ const Challenge = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.get(`/problem/environment?uuid=${uuid}`);
+      const response = await axios.post(`/problem/environment?uuid=${uuid}`);
       console.log(response.data);
-      await setEnv(response.data);
+      setEnv(response.data);
     } catch (error) {
       console.error('오류 발생:', error);
     }
@@ -97,10 +97,9 @@ const Challenge = () => {
           </div>
         </form>
 
-        <form onSubmit= {create_env}>
-          
+        <form onSubmit= {create_env}>  
         <Button variant="dark" type="submit" className={styles.create}>Create Virtual Environment</Button>
-          <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
+          <div dangerouslySetInnerHTML={{ __html: htmlContent }} className={styles.html} />
         </form>
       </div>
     </div> 
