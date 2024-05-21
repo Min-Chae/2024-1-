@@ -3,8 +3,11 @@ import styles from "./register.module.css"
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate();
+  
   const [member, setMember] = useState({
     memberId: '',
     password: '',
@@ -21,11 +24,14 @@ const Register = () => {
   };
 
   const do_register = async () => {
+    
     try {
       const response = await axios.post('/member/register', member);
       if (response.status === 200) {
         alert("회원가입 완료!");
+        navigate('/login', {replace: true});
       }
+
     } catch (error) {
       console.error('로그인 요청 중 오류 발생:', error);
       alert('중복된 ID가 있습니다');
@@ -33,6 +39,8 @@ const Register = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+
     const idPattern = /^[a-zA-Z]{4,12}$/;
     const nicknamePattern = /^[a-zA-Z0-9]{2,10}$/;
     const passwordPattern = /^[a-zA-Z0-9]{8,16}$/;

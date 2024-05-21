@@ -20,10 +20,8 @@ const Challenge = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-
-        const response = await axios.get(`/problem/find?uuid=${uuid}`);
-        console.log(response.data);
-        setChallenge(response.data);
+      const response = await axios.get(`/problem/find?uuid=${uuid}`);
+      setChallenge(response.data);
     };
     fetchData();
   }, [uuid]);
@@ -42,7 +40,6 @@ const Challenge = () => {
 
     try {
       const response = await axios.post(`/problem/environment?uuid=${uuid}`);
-      console.log(response.data);
       setEnv(response.data);
     } catch (error) {
       console.error('오류 발생:', error);
@@ -63,11 +60,17 @@ const Challenge = () => {
 
     try {
       const response = await axios.post('/problem/grade', formData);
-      
-      if(response.data) 
-      { alert("정답입니다!") }
-      else 
-      { alert("틀렸습니다!") }
+
+      if(response.data) { 
+        const token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, "$1"); // 토큰 가져오기
+        const score = await axios.post('/member/score', {
+          level: challenge.level,
+          token: token
+        });
+        alert("Right! (Your score : + " + score.data + ")"); 
+      }
+      else {
+        alert("Wrong!") }
     } catch (error) {
       console.error('오류 발생:', error);
     }

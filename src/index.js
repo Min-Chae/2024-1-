@@ -6,6 +6,7 @@ import Challenge from './challenge.js'
 import Register from './register.js'
 import Login from './login.js'
 import Navbar from './navbar.js'
+import Rank from './rank.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
         <Route path="/challenge/:uuid" element={<Challenge />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/rank" element={<Rank />} />
       </Routes>
     </BrowserRouter>
 );

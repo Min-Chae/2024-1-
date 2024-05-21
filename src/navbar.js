@@ -45,7 +45,7 @@ function NavbarElement() {
         
         {userInfo && (
         <Nav className="collapse navbar-collapse justify-content-end">
-          <Nav.Link>{userInfo}</Nav.Link>
+          <Nav.Link href="../rank">{userInfo}</Nav.Link>
         </Nav>
         )}
         </Container>
