@@ -1,5 +1,4 @@
 import React, { useState, useEffect }  from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styles from "./rank.module.css"
 
@@ -8,12 +7,9 @@ const Rank = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+        await axios.get('/member/create_dummy');
         const response = await axios.get('/member/rank');
         setScores(response.data);
-        console.log(response);
-        console.log(response.data);
-        setScores(response.data);
-        console.log(scores);
   };
     fetchData();
   }, []);

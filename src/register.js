@@ -28,7 +28,6 @@ const Register = () => {
     try {
       const response = await axios.post('/member/register', member);
       if (response.status === 200) {
-        alert("회원가입 완료!");
         navigate('/login', {replace: true});
       }
 

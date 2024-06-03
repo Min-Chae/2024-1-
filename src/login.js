@@ -24,7 +24,6 @@ const Login = () => {
         const token = response.data;
         setCookie('token', token, { path: '/' });
         fetchNickname(token);
-        alert('로그인 성공!');
         navigate('/', {replace: true});
       } else {
         alert('로그인 실패');
@@ -64,8 +63,6 @@ const Login = () => {
       const response = await axios.post('/member/nickname', token);
   
       if (response.status === 200) {
-        const nickname = response.data;
-        console.log('닉네임:', nickname);
       } else {
         console.error('닉네임 조회 실패:', response.data);
       }
@@ -82,6 +79,7 @@ const Login = () => {
     }));
   };
 
+  
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.text}> Login </div>

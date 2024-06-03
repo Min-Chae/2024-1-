@@ -6,12 +6,14 @@ import styles from "./list.module.css"
 const List = () => {
   const [problems, setProblems] = useState([]);
   
+  
   useEffect(() => {
     const CreateData = async () => {
       await axios.get('/problem/create_dummy');
     }
     CreateData();
   }, [problems]);
+  
   
 
   useEffect(() => {

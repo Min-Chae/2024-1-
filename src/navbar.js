@@ -14,7 +14,6 @@ function NavbarElement() {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-  
         const token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, "$1"); // 토큰 가져오기
         if (token) {
           const response = await axios.post('/member/nickname', token);
@@ -26,6 +25,24 @@ function NavbarElement() {
     };
     fetchUserInfo();
   }, [navigate]);
+
+  const handleLogout = async () => {
+    try {
+      // 로그아웃 처리 (필요 시 서버에 로그아웃 요청)
+      // 예를 들어, await axios.post('/member/logout');
+
+      // 쿠키에서 토큰 삭제
+      document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      
+      // userInfo 상태 초기화
+      setUserInfo(null);
+
+      // 로그인 페이지로 리다이렉트
+      navigate('/login');
+    } catch (error) {
+      console.error('로그아웃 중 오류 발생:', error);
+    }
+  };
 
   return (
     <>
@@ -46,6 +63,7 @@ function NavbarElement() {
         {userInfo && (
         <Nav className="collapse navbar-collapse justify-content-end">
           <Nav.Link href="../rank">{userInfo}</Nav.Link>
+          <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
         </Nav>
         )}
         </Container>
