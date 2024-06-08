@@ -26,11 +26,11 @@ const Login = () => {
         fetchNickname(token);
         navigate('/', {replace: true});
       } else {
-        alert('로그인 실패');
+        alert('login fail');
       }
     } catch (error) {
       console.error('로그인 요청 중 오류 발생:', error);
-      alert('로그인 요청 중 오류가 발생했습니다.');
+      alert('ID and password are incorrect');
     }
   };
 

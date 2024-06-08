@@ -33,7 +33,7 @@ const Register = () => {
 
     } catch (error) {
       console.error('로그인 요청 중 오류 발생:', error);
-      alert('중복된 ID가 있습니다');
+      alert('There is a duplicate ID');
     }
   };
 
@@ -46,22 +46,22 @@ const Register = () => {
 
     if (!member.memberId.match(idPattern)) {
       e.preventDefault();
-      alert("아이디는 4-12글자의 영문만 가능합니다")
+      alert("ID must be 4-12 characters in English only")
     } 
 
     else if (!member.password.match(passwordPattern)) {
       e.preventDefault();
-      alert("비밀번호는 8-16글자의 영문과 숫자만 가능합니다")
+      alert("Password must be 8-16 letters and numbers only")
     } 
 
     else if (member.password !== member.confirmPassword) {
       e.preventDefault();
-      alert("비밀번호가 일치하지 않습니다");
+      alert("Passwords do not match");
     } 
 
     else if (!member.nickname.match(nicknamePattern)) {
       e.preventDefault();
-      alert("닉네임은 2-10글자의 영문과 숫자만 가능합니다")
+      alert("Nickname must be 2-10 letters and numbers only")
     } 
 
     else {

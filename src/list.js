@@ -6,24 +6,21 @@ import styles from "./list.module.css"
 const List = () => {
   const [problems, setProblems] = useState([]);
   
-  
   useEffect(() => {
-    const CreateData = async () => {
-      await axios.get('/problem/create_dummy');
-    }
-    CreateData();
-  }, [problems]);
-  
-  
-
-  useEffect(() => {
+    if (problems.length === 0) {
     const fetchData = async () => {
         const response = await axios.get('/problem/list');
         setProblems(response.data);
     };
     fetchData();
+    }
   }, []);
 
+  
+  axios.get('/problem/create_dummy');
+  
+
+  
   return (
       <div className={styles.board_list}>
         <div className={styles.top}>
